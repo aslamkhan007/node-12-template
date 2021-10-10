@@ -16,10 +16,7 @@ export const Navigation = () => {
       <li className="nav-item active">
         <NavLink className="nav-link" to="/home">Home <span className="sr-only">(current)</span></NavLink>
       </li>
-      <li className="nav-item">
-        <NavLink className="nav-link" to="/login">Login</NavLink>
-      </li>
-    
+     
       <li className="nav-item">
         <NavLink className="nav-link" to="/product">Product</NavLink>
       </li>
@@ -28,6 +25,23 @@ export const Navigation = () => {
       <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
       <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+
+{localStorage.getItem("token")?
+<ul className="navbar-nav ml-auto">
+ <li className="nav-item">
+ <NavLink className="nav-link" to="/logout" >Logout</NavLink>
+</li>
+</ul>
+:
+<ul className="navbar-nav mr-auto  ml-auto">
+<li className="nav-item">
+<NavLink className="nav-link" to="/login">Login</NavLink>
+</li>
+</ul>
+
+
+}
+   
   </div>
 </nav>    </>
   );

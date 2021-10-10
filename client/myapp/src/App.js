@@ -8,6 +8,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { Product } from "./components/Product";
 import { Navigation } from "./components/Navigation";
+import { Logout } from "./components/Logout";
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
       <Switch>
         {/* <Route exact path="/product" component={Product} /> */}
         <Route exact path="/" component={Login} />
+        <Route exact path="/logout" component={Logout} />
      
         <PrivateRouter exact path ="/register" component ={Register}/>
         <PrivateRouter  path ="/home" component ={Home}/>

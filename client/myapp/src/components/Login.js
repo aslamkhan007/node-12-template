@@ -1,13 +1,13 @@
 import React from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory ,Redirect} from "react-router-dom";
 import loginpic from "../images/logo.png";
 import { useState } from "react";
-
+import { Navigation  } from "./Navigation";
 
 export function Login() {
   const [userLogin, setLogin] = useState({ email: "", password: "" });
 
-  let history = useHistory();
+  const history = useHistory();
 
   let name, value;
   const handleChange = (e) => {
@@ -42,9 +42,6 @@ export function Login() {
       }
       console.log(data1);
       if (data1 && data1.accessToken) {
-        console.log(data1,"hhhhhhhhhhhh");
-        history.push("/home");
-
         localStorage.setItem(
           "token",
           JSON.stringify({
@@ -52,6 +49,12 @@ export function Login() {
             token: data1.accessToken,
           })
         );
+
+        console.log(data1,"hhhhhhhhhhhh");
+        history.push("/home");
+        // <Redirect to ="/home"/>
+
+       
       } else {
         console.log("hellol");
       }
@@ -65,6 +68,7 @@ export function Login() {
   };
   return (
     <>
+    <Navigation/>
       <div className="sufee-login d-flex align-content-center flex-wrap  bg-dark ">
         <div className="container">
           <div className="login-content">
